@@ -13,7 +13,7 @@ class Ex1
     
     # task 2
     def copyodd(array = nil)
-        odd_array = array.select_with_index { |x, i| i.odd? }
+        odd_array = array.select { |i| i.odd? }
         return odd_array 
     end
     
