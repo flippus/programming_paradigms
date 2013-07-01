@@ -18,3 +18,11 @@ female(susan).
 male(john).
 male(jim).
 male(dave).
+
+sister(X,Y) :- female(X),parent(Z,Y),parent(Z,X),female(Z),\+(X=Y).
+
+grandfather(X,Y) :- male(X),parent(Z,Y),parent(X,Z).
+
+aunt(X,Y) :- female(X),parent(Z,Y),sister(X,Z).
+
+
