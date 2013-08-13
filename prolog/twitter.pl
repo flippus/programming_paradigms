@@ -21,8 +21,8 @@ fred_sees(X) :- follows(fred,Y),tweeted(Y,X).
 
 find_friends(X,Y) :- follows(X,Y),follows(Y,X),\+(X=Y).
 
-see_tweets(X,Y) :- follows(X,Z),tweeted(Z,Y).
+visible_tweets(X,Y) :- follows(X,Z),tweeted(Z,Y).
 
-fred_sees_retweeted(X) :- follows(fred,Y),tweeted(Y,X).
-fred_sees_retweeted((X) :- follows(fred,Y),follows(Y,Z),tweeted(Z,X).
+fred_sees_retweeted_tweets(Y) :- follows(fred, X), tweet(X,Y).
+fred_sees_retweeted_tweets(Y) :- follows(fred, X), visible_tweets(X,Y).
 
