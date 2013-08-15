@@ -4,7 +4,7 @@
 -export([sendbacknew/0]).
 -export([sendandreceivemessage/2]).
 -export([fac/1]).
--export([client/1]).
+-export([client/0]).
 
 % before starting the process, compile the file:
 % c(printer).
@@ -55,12 +55,18 @@ fac(N) -> N * fac(N-1).
 
 % d
 
-client(To) ->
-    To ! {self(), 5},
+% start server:
+% register(facsrv,spawn(fun printer:sendbacknew/0)).
+
+% start client process:
+% spawn(fun printer:client/0).
+
+client() ->
+    facsrv ! {self(), 5},
     receive
         X -> X
     end,
-    To ! {self(), 7},
+    facsrv ! {self(), 7},
     receive
         Y -> Y
     end.
