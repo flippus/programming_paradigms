@@ -2,7 +2,7 @@
 -export([master/1]).
 
 % start
-% Master = spawn(masterslave,master,[[]]).
+% Master = spawn(master,master,[[]]).
 
 master(Slaves) ->
     receive
