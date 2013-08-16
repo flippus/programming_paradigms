@@ -38,7 +38,7 @@ sendback() ->
 sendandreceivemessage(To, Message) -> 
     To ! {self(), Message},
     receive
-        X -> io:format("~p\n",[X]),
+        X -> io:format("~p\n",[X])
     end.
     
 % c
