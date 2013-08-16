@@ -3,7 +3,6 @@
 -export([sendback/0]).
 -export([sendbacknew/0]).
 -export([sendandreceivemessage/2]).
--export([fac/1]).
 -export([client/0]).
 
 % before starting the process, compile the file:
@@ -39,7 +38,7 @@ sendback() ->
 sendandreceivemessage(To, Message) -> 
     To ! {self(), Message},
     receive
-        X -> X
+        X -> io:format("~p\n",[X]),
     end.
     
 % c
