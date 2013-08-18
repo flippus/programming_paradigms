@@ -14,16 +14,13 @@ sumProd x y z = sumProd (x + (head(y) * head(z))) (tail y) (tail z)
 
 
 noOfElem :: [a] -> Integer
-noOfElem x = countElem 0 x
-
-countElem :: Integer -> [a] -> Integer
-countElem x [] = x
-countElem x y = countElem (x+1) (tail y)
+noOfElem x = foldl (\sum y -> sum + 1) 0 x
 
 
 orderIt :: Ord a => [a] -> [a]
 orderIt [] = []
 orderIt x = [minimum x] ++ orderIt(delete (minimum x) x)
+
 
 insertPos :: a -> [a] -> [[a]]
 insertPos x [] = [[x]]
