@@ -4,13 +4,10 @@ innerprod, noOfElem, orderIt, insertPos) where
 import Data.List
 
 innerprod :: [Integer] -> [Integer] -> Integer
-innerprod x y = sumProd 0 x y
-
-sumProd :: Integer -> [Integer] -> [Integer] -> Integer
-sumProd x [] [] = x
-sumProd x [] y = x
-sumProd x y [] = x
-sumProd x y z = sumProd (x + (head(y) * head(z))) (tail y) (tail z) 
+innerprod [] [] = 0
+innerprod [] y = 0
+innerprod x [] = 0
+innerprod x y = head(x) * head(y) + innerprod (tail x) (tail y) 
 
 
 noOfElem :: [a] -> Integer
