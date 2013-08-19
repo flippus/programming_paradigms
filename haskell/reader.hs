@@ -4,11 +4,11 @@ module Reader(
 main = do
     putStrLn "Enter a numbers, finish entering with a 0!"
     let numbers = addNumber []
-    putStrLn "Sum is " ++ foldl (\x sum -> sum + x) 0 numbers
-    putStrLn "Product is " ++ prod numbers 
+    putStrLn ("Sum is " ++ show(foldl (\x sum -> sum + x) 0 numbers))
+    putStrLn ("Product is " ++ show(prod numbers)) 
 
 
-addNumber :: [a] -> [a]
+addNumber :: Num a => [a] -> [a]
 addNumber x = 
     if readNumber 1 == 0
     then x
