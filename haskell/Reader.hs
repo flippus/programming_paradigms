@@ -5,7 +5,7 @@ main = do
     putStrLn "Enter a numbers, finish entering with a 0!"
     let numbers = addNumber []
     putStrLn "Sum is " ++ foldl (\x sum -> sum + x) 0 numbers
-    putStrLn "Product is " ++ innerprod numbers   
+    putStrLn "Product is " ++ prod numbers 
 
 
 addNumber :: [a] -> [a]
@@ -22,9 +22,7 @@ readNumber x = do
     let number = (read string)::Int
     return number
 
-innerprod :: [Integer] -> [Integer] -> Integer
-innerprod [] [] = 0
-innerprod [] y = 0
-innerprod x [] = 0
-innerprod x y = head(x) * head(y) + innerprod (tail x) (tail y) 
+prod :: [Integer]-> Integer
+prod [] = 0
+prod x = head(x) * prod (tail x)
     
