@@ -10,19 +10,19 @@ main = do
 
 addNumber :: Num a => [a] -> [a]
 addNumber x = 
-    if readNumber 1 == 0
+    if readNumber 1 < 1
     then x
     else
         x ++ addNumber x
         
         
-readNumber :: Integer -> IO Int
+readNumber :: IO Int -> IO Int
 readNumber x = do
     string <- getLine
     let number = (read string)::Int
     return number
 
 prod :: [Integer]-> Integer
-prod [] = 0
+prod [] = 1
 prod x = head(x) * prod (tail x)
     
